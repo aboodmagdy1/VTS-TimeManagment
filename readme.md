@@ -76,4 +76,45 @@ The Vacation Tracking System (VTS) aims to empower employees to independently ma
  ![Manager Approval Flowchart Diagram](Manager-approval.drawio.png)
 
 
+### pseudocode : 
+    START
+    Employee clicks "Open VTS" via intranet portal (SSO)
+
+    IF user authenticated by SSO THEN
+    VTS retrieves employee balances and requests (6 months back, 18 months ahead)
+    Display balances and request history
+    ELSE
+    Redirect to portal login
+    STOP
+    END IF
+
+    Employee creates a vacation request:
+    - choose category with positive balance
+    - select dates and hours (via calendar)
+    - enter title and short description
+    - submit request
+
+    System validates request:
+    IF validation fails THEN
+        show validation errors and allow edit or cancel
+        GO BACK to "Employee edits request"
+    ELSE
+        IF request requires manager approval THEN
+        save request with status = PENDING
+        send approval email to manager(s)
+        ELSE
+        save request with status = APPROVED
+        send confirmation email to employee
+        END IF
+    END IF
+
+    When manager responds:
+    IF manager approves THEN
+        update request status = APPROVED
+    ELSE
+        update request status = REJECTED and save manager reason
+    END IF
+    send notification email to employee
+
+    END
 
