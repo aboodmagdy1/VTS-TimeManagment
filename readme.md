@@ -1,5 +1,18 @@
 # Vacation Tracking System SRS
 
+## Table of Contents
+- [Vision](#vision)
+- [Functional Requirements](#functional-requirements)
+- [Non-Functional Requirements](#non-functional-requirements)
+- [Constraints](#constraints)
+- [Use Case: Submit New Request](#use-case--sumbit-new-request)
+  - [Main Flow](#main-flow)
+  - [Diagrams](#diagrams)
+  - [Flow Charts](#flow-charts-)
+  - [Pseudocode](#pseudocode-)
+- [Use Case: Cancel Approved Request](#use-case--cancel-approved-request)
+  - [Diagrams](#digrams)
+
 ## Vision
 The Vacation Tracking System (VTS) aims to empower employees to independently manage their vacation, sick leave, and personal time off through an easy-to-use and intelligent system. Its vision is to simplify HR operations, reduce managerial workload on noncore tasks, and enhance employee autonomy and responsibility in managing their leave, all through an intuitive and user-friendly platform.
 
