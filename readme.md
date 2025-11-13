@@ -27,7 +27,7 @@ The Vacation Tracking System (VTS) aims to empower employees to independently ma
 
 
 
-## Use Case
+## Use Case : Sumbit New Request
 ### Actor: Employee
 ### Goal: The employee wishes to submit a new request for vacation time.
 ### Preconditions: The employee is authenticated by the portal framework and identified as an employee of the company with privileges to manage his or her own vacation time.
@@ -117,4 +117,18 @@ The Vacation Tracking System (VTS) aims to empower employees to independently ma
     send notification email to employee
 
     END
+
+
+
+## Use Case : Cancel Approved Request
+### Actor: Employee
+### Goal: The employee wants to cancel an approved vacation time request .
+### Preconditions:  The employee has a vacation time request that has been approved and is scheduled for some time in the future or the recent past (preious 5 business days). See also main flow preconditions.
+
+### Digrams : 
+ Sequence : 
+![Employee Cancel  Request Sequence ](CancelRequest.drawio.png)
+ 
+ Flow Chart : 
+ ![Employee Cancel Request Flowchart Diagram](CancelRequest-flowchart.png)
 
