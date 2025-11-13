@@ -8,10 +8,12 @@
 - [Use Case: Submit New Request](#use-case--sumbit-new-request)
   - [Main Flow](#main-flow)
   - [Diagrams](#diagrams)
-  - [Flow Charts](#flow-charts-)
-  - [Pseudocode](#pseudocode-)
+  - [Flow Charts](#flow-charts)
+  - [Pseudocode](#pseudocode)
 - [Use Case: Cancel Approved Request](#use-case--cancel-approved-request)
   - [Diagrams](#digrams)
+  - [Flow Chart](#flow-chart)
+  - [Pseudocode](#pseudocode-1)
 
 ## Vision
 The Vacation Tracking System (VTS) aims to empower employees to independently manage their vacation, sick leave, and personal time off through an easy-to-use and intelligent system. Its vision is to simplify HR operations, reduce managerial workload on noncore tasks, and enhance employee autonomy and responsibility in managing their leave, all through an intuitive and user-friendly platform.
@@ -80,7 +82,7 @@ The Vacation Tracking System (VTS) aims to empower employees to independently ma
  Manager Sequence Digram :
 ![Manager Sequence Diagram](Manager-Sequence-digram.drawio.png)
 
-### Flow Charts : 
+### Flow Charts
  Employee Request  :  
  ![Employee Request Flowchart Diagram](Employee-Request-Flowchart.drawio.png)
 
@@ -89,7 +91,7 @@ The Vacation Tracking System (VTS) aims to empower employees to independently ma
  ![Manager Approval Flowchart Diagram](Manager-approval.drawio.png)
 
 
-### pseudocode : 
+### Pseudocode
     START
     Employee clicks "Open VTS" via intranet portal (SSO)
 
@@ -138,10 +140,56 @@ The Vacation Tracking System (VTS) aims to empower employees to independently ma
 ### Goal: The employee wants to cancel an approved vacation time request .
 ### Preconditions:  The employee has a vacation time request that has been approved and is scheduled for some time in the future or the recent past (preious 5 business days). See also main flow preconditions.
 
-### Digrams : 
+### Digrams
  Sequence : 
 ![Employee Cancel  Request Sequence ](CancelRequest.drawio.png)
  
- Flow Chart : 
+### Flow Chart
  ![Employee Cancel Request Flowchart Diagram](CancelRequest-flowchart.png)
+
+
+### Pseudocode
+    START
+    Employee clicks "Open VTS" via intranet portal (SSO)
+
+    IF user authenticated by SSO THEN
+        VTS retrieves employee balances and requests (6 months back, 18 months ahead)
+        Display balances and request history
+    ELSE
+        Redirect to portal login
+        STOP
+    END IF
+
+    Employee selects an approved request and clicks "Cancel"
+
+    IF request date is in the future THEN
+        Ask employee to confirm cancellation
+        IF employee confirms THEN
+            Update request status = CANCELLED
+            Send notification email to manager
+            Update employee balance in database (restore hours)
+            Send confirmation email to employee
+        ELSE
+            Return to home page without changes
+        END IF
+    ELSE IF request date is within last 5 business days THEN
+        Ask employee to enter cancellation reason
+        Ask employee to confirm cancellation
+        IF employee confirms THEN
+            Update request status = CANCELLED
+            Save cancellation reason
+            Send notification email to manager
+            Update employee balance in database (restore hours)
+            Send confirmation email to employee
+        ELSE
+            Return to home page without changes
+        END IF
+    ELSE
+        Display error: "Cannot cancel requests older than 5 business days"
+        Return to home page
+    END IF
+
+    END
+
+
 
