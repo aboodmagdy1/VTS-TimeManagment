@@ -19,6 +19,7 @@
   - [Diagrams](#digrams)
   - [Flow Chart](#flow-chart)
   - [Pseudocode](#pseudocode-2)
+- [State Machine Diagram](#state-machine-diagram)
 
 
 ## Vision
@@ -150,3 +151,8 @@ The Vacation Tracking System (VTS) aims to empower employees to independently ma
  
 ### Flow Chart
  ![Employee Edit Pending Flowchart Diagram](Edit-Pending-Request.png)
+
+
+
+## State Machine Diagram
+ ![State Machine Diagram](StateMachineDigram.drawio.png)
